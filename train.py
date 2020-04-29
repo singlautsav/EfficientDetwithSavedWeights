@@ -329,7 +329,7 @@ def save_checkpoint(model, name):
     
 
 
-PATH_OF_GIT_REPO = r'Yet-Another-EfficientDet-Pytorch/.git'  # make sure .git folder is properly configured
+PATH_OF_GIT_REPO = r'EfficientDetwithSavedWeights/.git'  # make sure .git folder is properly configured
 COMMIT_MESSAGE = 'comment from python script'
 
 def git_push():
