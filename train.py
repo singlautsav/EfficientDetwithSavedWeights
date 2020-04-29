@@ -320,16 +320,16 @@ def save_checkpoint(model, name):
     print(opt.saved_path)
     if isinstance(model, CustomDataParallel):
         torch.save(model.module.model.state_dict(), os.path.join(opt.saved_path, name))
-        torch.save(model.module.model.state_dict(), os.path.join(r'content/gdrive/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset', name))
+        # torch.save(model.module.model.state_dict(), os.path.join(r'content/gdrive/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset', name))
     else:
         torch.save(model.model.state_dict(), os.path.join(opt.saved_path, name))
-        torch.save(model.model.state_dict(), os.path.join(r'content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset', name))
-    # git_push()
+        # torch.save(model.model.state_dict(), os.path.join(r'content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset', name))
+    git_push()
 
     
 
 
-PATH_OF_GIT_REPO = r'Yet-Another-EfficientDet-Pytorch/.git'  # make sure .git folder is properly configured
+PATH_OF_GIT_REPO = r'EfficientDetwithSavedWeights/.git'  # make sure .git folder is properly configured
 COMMIT_MESSAGE = 'comment from python script'
 
 def git_push():
@@ -342,7 +342,7 @@ def git_push():
     except:
         print('Some error occured while pushing the code')    
 
-git_push()
+# git_push()
 
 if __name__ == '__main__':
     opt = get_args()
