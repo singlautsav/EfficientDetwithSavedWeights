@@ -1,0 +1,6 @@
+classes= 200
+train  = /darknet/train2019/train.txt
+valid  = /darknet/val2019/val.txt
+names = /darknet/cfgX/custom.names
+backup = backup/
+new
