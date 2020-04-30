@@ -1,3 +1,6 @@
+import os
+from git import Repo
+
 PATH_OF_GIT_REPO = os.getcwd()  # make sure .git folder is properly configured
 COMMIT_MESSAGE = 'comment from python script'
 
