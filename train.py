@@ -322,10 +322,10 @@ def save_checkpoint(model, name):
     filepath=f"/content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/ProductDataset/{name}.pth"
     if isinstance(model, CustomDataParallel):
         torch.save(model.module.model.state_dict(), os.path.join(opt.saved_path, name))
-        torch.save(model.module.model.state_dict(), filepath))
+        torch.save(model.module.model.state_dict(), filepath)
     else:
         torch.save(model.model.state_dict(), os.path.join(opt.saved_path, name))
-        torch.save(model.model.state_dict(), filepath))
+        torch.save(model.model.state_dict(), filepath)
         # torch.save(model.model.state_dict(), os.path.join(r'content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset', name))
     # git_push()
 
