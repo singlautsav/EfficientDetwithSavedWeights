@@ -315,16 +315,19 @@ def train(opt):
         writer.close()
     writer.close()
 
-
+i = 0
+# filepath=f"/content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/ProductDataset/efficientdet-d1_{i}.pth"
 def save_checkpoint(model, name):
     print(opt.saved_path)
+    filepath=f"/content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/ProductDataset/{name}.pth"
     if isinstance(model, CustomDataParallel):
         torch.save(model.module.model.state_dict(), os.path.join(opt.saved_path, name))
-        # torch.save(model.module.model.state_dict(), os.path.join(r'content/gdrive/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset', name))
+        torch.save(model.module.model.state_dict(), filepath))
     else:
         torch.save(model.model.state_dict(), os.path.join(opt.saved_path, name))
+        torch.save(model.model.state_dict(), filepath))
         # torch.save(model.model.state_dict(), os.path.join(r'content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset', name))
-    git_push()
+    # git_push()
 
     
 
