@@ -319,7 +319,7 @@ i = 0
 # filepath=f"/content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/ProductDataset/efficientdet-d1_{i}.pth"
 def save_checkpoint(model, name):
     print(opt.saved_path)
-    filepath=f"../gdrive/My\ Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset/{name}"
+    filepath=f"../gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset/{name}"
     if isinstance(model, CustomDataParallel):
         torch.save(model.module.model.state_dict(), os.path.join(opt.saved_path, name))
         torch.save(model.module.model.state_dict(), filepath)
