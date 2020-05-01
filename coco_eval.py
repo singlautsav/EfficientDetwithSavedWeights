@@ -2,12 +2,10 @@
 
 """
 COCO-Style Evaluations
-
 put images here datasets/your_project_name/annotations/val_set_name/*.jpg
 put annotations here datasets/your_project_name/annotations/instances_{val_set_name}.json
 put weights here /path/to/your/weights/*.pth
 change compound_coef
-
 """
 
 import json
