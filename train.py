@@ -22,7 +22,6 @@ from efficientdet.loss import FocalLoss
 from utils.sync_batchnorm import patch_replication_callback
 from utils.utils import replace_w_sync_bn, CustomDataParallel, get_last_weights, init_weights
 
-from git import Repo
 
 class Params:
     def __init__(self, project_file):
@@ -315,8 +314,7 @@ def train(opt):
         writer.close()
     writer.close()
 
-i = 0
-# filepath=f"/content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/ProductDataset/efficientdet-d1_{i}.pth"
+
 def save_checkpoint(model, name):
     print(opt.saved_path)
     filepath=f"../gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset/{name}"
@@ -328,24 +326,6 @@ def save_checkpoint(model, name):
         torch.save(model.model.state_dict(), filepath)
         # torch.save(model.model.state_dict(), os.path.join(r'content/gdrive/My Drive/Yet-Another-EfficientDet-Pytorch/logs/productDataset', name))
     # git_push()
-
-    
-
-
-PATH_OF_GIT_REPO = os.getcwd()  # make sure .git folder is properly configured
-COMMIT_MESSAGE = 'comment from python script'
-
-def git_push():
-    try:
-        repo = Repo(PATH_OF_GIT_REPO)
-        repo.git.add(update=True)
-        repo.index.commit(COMMIT_MESSAGE)   
-        origin = repo.remote(name='origin')
-        origin.push()
-    except:
-        print('Some error occured while pushing the code')    
-
-# git_push()
 
 if __name__ == '__main__':
     opt = get_args()

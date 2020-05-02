@@ -194,8 +194,8 @@ class CustomDataParallel(nn.DataParallel):
         devices = ['cuda:0']
         splits = inputs[0].shape[0] // self.num_gpus
         # print("heheheheheheheheh")
-        # print(devices)
-        # print(device_ids)
+        print(devices)
+        print(device_ids)
         return [(inputs[0][splits * device_idx: splits * (device_idx + 1)].to(f'cuda:{device_idx}', non_blocking=True),
                  inputs[1][splits * device_idx: splits * (device_idx + 1)].to(f'cuda:{device_idx}', non_blocking=True))
                 for device_idx in range(len(devices))], \
